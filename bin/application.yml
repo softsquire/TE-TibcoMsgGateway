@@ -1,0 +1,56 @@
+server:
+  port: 8096
+  jetty:     
+     threadPool:        
+        minThreads: 8
+        maxThreads: 400
+        idleTimeout: 6000
+     queue:
+        maxCount:6000l
+     Qos:
+        maxRequests: 100
+        waitMs: 10
+        suspendMs: 100
+#  ssl:
+#    key-store: libs/keystore.jks
+#    key-store-password: Tesco123!
+#    key-password: password  
+#    key-store-type: JKS
+      
+              
+tibco:
+    ems:
+      serverUrl: tcp://localhost:7222
+      userName: admin
+      password: 
+      topic: eventTopic
+      timeOut: 500
+      retryCount: 4
+      retryDelay: 100
+            
+spring:                    
+  application:
+    name: TibcoMessagingGateway
+    
+---
+
+server:
+  port: 8080
+
+spring:
+  profiles: PREPROD
+  
+  application:
+    name: TibcoMessagingGateway
+    
+  
+tibco:
+    ems:
+      serverUrl: tcp://npmidmsgsv11uk.dev.global.tesco.org:2122
+      userName: icpAdmin
+      password: icp
+      topic: TMG.PPE.EVENTTOPIC
+      timeOut: 500
+      retryCount: 4
+      retryDelay: 100
+      

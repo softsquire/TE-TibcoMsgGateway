@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property name="DEV_HOME" value="./applogs" ></property>
+	<property name="app.name" value="tibco-messaging-gateway" ></property>
+
+	<property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %X{EVENT_ID} %5p ${PID:- } --- [%15.15t{14}] %-40.40logger{39} : %m%n" />
+
+	<property name="LOG_LEVEL" value="${loglevel}" />
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE-AUDIT" class="ch.qos.logback.core.rolling.RollingFileAppender">		
+		<file>${DEV_HOME}/tibcomessaginggateway.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%date{"yyyy-MM-dd HH:mm:ss.SSS", UTC} |EVENTID: %X{EVENT_ID} |${app.name} |${PID:- } |STORE_ID: %X{STORE_ID} |%5p | ${HOSTNAME} | %caller{1..2} | %m%n | %exception{full} 
+			</Pattern>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${DEV_HOME}/archived/tibcomessaginggateway.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>5MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>				
+	</appender>
+	
+
+	<!-- Send logs to both console and file audit -->
+	<logger name="com.tesco.fulfillment.tibco.messaging" level="${loglevel}">
+		<appender-ref ref="FILE-AUDIT" />
+	</logger>
+
+	<root level="INFO">
+		<!-- <appender-ref ref="FILE-AUDIT" /> -->
+		<appender-ref ref="STDOUT" />
+		
+	</root>
+</configuration>

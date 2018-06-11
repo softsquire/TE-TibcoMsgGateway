@@ -1,0 +1,17 @@
+{
+	"messageHeader": {
+		"eventType": "MARSHALLING",
+		"eventName": "PACKAGEMARSHALLED",
+		"eventVersion": "0.1",
+		"eventID": "733e19eb-dabc-4e14-879a-eb1db7f28d22",
+	    "topic": "topic01"
+		
+	},
+	"messageBody": {
+		"timestamp": "2016-07-14T09:10:00.6212Z",
+		"pickedPackageID": "9TES27860000001",
+		"fulfilmentOrderID": "OFS:GMO:XYZ99-3",
+		"fulfillmentNodeID": "2786",
+		"location": "MU001"
+	}
+}

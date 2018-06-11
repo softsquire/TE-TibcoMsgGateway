@@ -1,0 +1,18 @@
+{
+    "messageHeader": {
+                "eventType":   "PICKING",
+                "eventName":   "PICKTRIPCREATED",
+                "eventVersion": "0.1",
+                "eventID":      "1483a810-61eb-4952-a923-5da95287f680",
+				"topic":        "tms.topic"
+
+},
+ 	"messageBody": {
+
+                "picktripId": "PT_2212_61da1a10-5c98-491f-9a1a-105c98091f57",
+                "deliveryType": "Store_Collect",
+                "countryId": "UK",
+                "storeId": "2212"
+
+}
+}

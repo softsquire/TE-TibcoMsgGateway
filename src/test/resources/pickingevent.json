@@ -1,0 +1,24 @@
+{
+  "messageHeader": {
+		"eventType": "PICKING",
+		"eventName": "PICKINGCOMPLETED",
+		"eventVersion": "0.1",
+		"eventID": "1483a810-61eb-4952-a923-5da95287f680",
+		"topic": "topic01"
+	},
+	"messageBody": {
+		"pickedPackageID": "9TES27860000002",
+		"fulfilmentOrderID": "OFS:GMO:XYZ99-4",
+		"fulfillmentNodeID": "2786",
+		"items": [{
+			"timestamp": "2016-07-14T09:10:00.6212Z",
+			"orderlineID": "1",
+			"orderedProductTpnb": "073015194",
+			"pickedProductTpnb": "073015194",
+			"plannedQty": "1",
+			"pickedQty": "1",
+			"status": "Success",
+			"reasonCode": "NA"
+		}]
+	}
+}
